@@ -8,14 +8,19 @@
 #docker network ls
 #docker ps
 #docker inspect CONTAINER_ID --format '{{ .NetworkSettings.IPAddress }}' #pocket
+#docker-machine ls
+#
 
-
-# Creating swarm manager
+# Creating and starting swarm manager
 docker-machine create --driver virtualbox manager1
+docker-machine start manager1
 
-# Creating swarm workers through a loop
+# Creating and starting swarm workers through a loop
 for i in $(seq 2 10) ; do
 	docker-machine create --driver virtualbox worker$i;
+	docker-machine start worker$i;
 done
+
+
 
 
