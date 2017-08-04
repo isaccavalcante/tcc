@@ -9,7 +9,7 @@
 #docker ps
 #docker inspect CONTAINER_ID --format '{{ .NetworkSettings.IPAddress }}' #pocket
 #docker-machine ls
-#
+#docker-machine ip manager1
 
 # Creating and starting swarm manager
 docker-machine create --driver virtualbox manager1
