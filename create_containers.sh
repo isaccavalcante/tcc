@@ -1,26 +1,48 @@
 #!/bin/bash
-# written by me
+# written by Isac C.
 # thanks God
 #
-# isaccavalcante AT alu DOT ufc DOT br
 
-# Useful docker commands:
-#docker network ls
-#docker ps
-#docker inspect CONTAINER_ID --format '{{ .NetworkSettings.IPAddress }}' #pocket
-#docker-machine ls
-#docker-machine ip manager1
+echo "[+] Running containers"
 
-# Creating and starting swarm manager
-docker-machine create --driver virtualbox manager1
-docker-machine start manager1
+docker run -td alpine > /dev/null
+printf "\r[+] created 1 container" 
 
-# Creating and starting swarm workers through a loop
-for i in $(seq 2 10) ; do
-	docker-machine create --driver virtualbox worker$i;
-	docker-machine start worker$i;
+for i in $(seq 2 10); do
+	docker run -td alpine > /dev/null
+	printf "\r[+] created $i containers" 
 done
 
+echo
+echo -e "IP Address\tMAC Address"
+paste <(docker ps -q | xargs docker inspect --format '{{ .NetworkSettings.IPAddress }}') \
+      <(docker ps -q | xargs docker inspect --format '{{ .NetworkSettings.MacAddress }}')
 
+echo "[-] Stopping containers..."
+docker stop $(docker ps -a -q) > /dev/null
+echo "[-] Deleting containers..."
+docker rm $(docker ps -a -q) > /dev/null
+echo "[+] Execution finished."
 
+# Useful docker comands and legend
 
+# Showing all IP addresses of running containers
+#docker ps -q | xargs docker inspect --format '{{ .NetworkSettings.IPAddress }}' 
+
+# Showing all MAC addresses of running containers
+#docker ps -q | xargs docker inspect --format '{{ .NetworkSettings.MacAddress }}' 
+
+# Running an alpine container in background
+#docker run -td alpine
+
+# Listing network informations about docker containers
+#docker network ls 
+
+# Listing docker runnining containers
+#docker ps 
+
+# Stopping all containers
+#docker stop $(docker ps -a -q) 
+
+# Deleting all containers
+#docker rm $(docker ps -a -q) 
