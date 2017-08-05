@@ -22,7 +22,7 @@ echo "[-] Stopping containers..."
 docker stop $(docker ps -a -q) > /dev/null
 echo "[-] Deleting containers..."
 docker rm $(docker ps -a -q) > /dev/null
-echo "[+] Execution finished."
+echo "[+] Execution finished"
 
 # Useful docker comands and legend
 
