@@ -15,7 +15,7 @@
 4. If the IP-MAC binding is present in its secondary ARP table, it will reply the binding to the client node
 5. If the IP-MAC binding is not present, it will broadcast ARP Request for the IP address. The MAC address received by ARP Reply is saved in its secondary ARP table.
 
-# Algoritmo ACS :br:
+# Algoritmo ACS 🇧🇷
 
 ## Implementação do Cliente
 1. Quando um novo nó se junta à rede, ele envia em broadcast uma requisição `Who is ACS`.
