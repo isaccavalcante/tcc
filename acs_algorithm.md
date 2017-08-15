@@ -1,4 +1,4 @@
-# ACS Algorithm
+# ACS Algorithm :us:
 
 ## Client Side Implementation
 1. When a new node joins the network, it broadcasts a `Who is ACS` request.
@@ -15,7 +15,7 @@
 4. If the IP-MAC binding is present in its secondary ARP table, it will reply the binding to the client node
 5. If the IP-MAC binding is not present, it will broadcast ARP Request for the IP address. The MAC address received by ARP Reply is saved in its secondary ARP table.
 
-# Algoritmo ACS
+# Algoritmo ACS :br:
 
 ## Implementação do Cliente
 1. Quando um novo nó se junta à rede, ele envia em broadcast uma requisição `Who is ACS`.
