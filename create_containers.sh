@@ -2,7 +2,6 @@
 # written by Isac C.
 # thanks God
 #
-#
 echo "[+] Running containers"
 
 docker run -td alpine > /dev/null

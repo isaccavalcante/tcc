@@ -12,7 +12,7 @@
 1. The ACS server will maintain a secondary long term ARP cache table.
 2. When a client node joins the network and broadcast a request for ACS, the ACS will reply back with its IP and MAC address.
 3. When a client node requests for MAC address of an IP address, the ACS will search for the  binding  in  its secondary ARP table.
-4. If the IP-MAC binding is present in its secondary ARP table, it will reply the binding to the client node
+4. If the IP-MAC binding is present in its secondary ARP table, it will reply the binding to the client node.
 5. If the IP-MAC binding is not present, it will broadcast ARP Request for the IP address. The MAC address received by ARP Reply is saved in its secondary ARP table.
 
 # Algoritmo ACS 🇧🇷
