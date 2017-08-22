@@ -4,7 +4,7 @@
 ```Python
 if a host sends an outbound ARP MESSAGE:
     if the ARP MESSAGE is an outbound ARP REQUEST:
-        if the IP ADDRESS in the outbound ARP REQUEST corresponds to the gateway IP ADDRESS: # Case 4 
+        if the IP ADDRESS in the outbound ARP REQUEST corresponds to the IP ADDRESS of the gateway: # Case 4 
             ASA broadcasts the outbound ARP REQUEST to the gateway.
         else:
             ASA reports the outbound ARP REQUEST to a user of the host.
