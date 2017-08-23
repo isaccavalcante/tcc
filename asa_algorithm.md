@@ -34,6 +34,8 @@ elif a host receives an inbound arp message:
 
 # Algoritmo ASA 🇧🇷
 
-`se` um host envia uma mensagem arp:
-    +`se` a mensagem arp é uma mensagem de saída `ARP REQUEST`:
-        +`se` o `ENDEREÇO IP` na mensagem
+```pot 
+se um host envia uma mensagem arp:
+    se a mensagem arp é uma mensagem de saída `ARP REQUEST`:
+        `se` o `ENDEREÇO IP` na mensagem
+```
