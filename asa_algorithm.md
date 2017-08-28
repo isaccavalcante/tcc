@@ -1,6 +1,6 @@
 # ASA Algorithm :us:
 
-## Pseudo code:
+## Pseudocode:
 ```Python
 if a host sends an outbound arp message:
     if the arp message is an outbound ARP REQUEST:
@@ -33,7 +33,7 @@ elif a host receives an inbound arp message:
 ```
 
 # Algoritmo ASA 🇧🇷
-
+## Pseudocódigo:
 ```python
 `se` um host envia uma mensagem arp:
     `se` a mensagem arp é uma mensagem de saída ARP REQUEST:
