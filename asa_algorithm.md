@@ -36,6 +36,10 @@ elif a host receives an inbound arp message:
 
 ```python
 `se` um host envia uma mensagem arp:
-    se a mensagem arp é uma mensagem de saída `ARP REQUEST`:
-        `se` o `ENDEREÇO IP` na mensagem
+    `se` a mensagem arp é uma mensagem de saída ARP REQUEST:
+        `se` o ENDEREÇO IP na mensagem de saída ARP REQUEST corresponde ao ENDEREÇO IP do gateway:
+            ASA envia em broadcast a ARP REQUEST de saída para o gateway.
+        `caso contrário`:
+            ASA reporta a mensagem ARP REQUEST
+
 ```
