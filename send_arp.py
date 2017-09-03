@@ -7,6 +7,7 @@ import logging
 logging.getLogger("scapy.runtime").setLevel(logging.ERROR) # supressing warnings
 from scapy.all import ARP, send
 
+# building the packet
 a = ARP()
 a.pdst = '127.0.0.1'
 a.fields_desc[4].s2i['who-is-acs'] = 28
