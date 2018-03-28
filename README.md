@@ -2,21 +2,21 @@
 
 @TODO
 
-### Useful docker comands and legend
+#### Useful docker comands and legend
 
-## Showing all IP addresses of running containers
+##### Showing all IP addresses of running containers
 ```docker ps -q | xargs docker inspect --format '{{ .NetworkSettings.IPAddress }}' ```
 
-## Showing all MAC addresses of running containers
+##### Showing all MAC addresses of running containers
 ```docker ps -q | xargs docker inspect --format '{{ .NetworkSettings.MacAddress }}' ```
 
-## Running an alpine container in background
+##### Running an alpine container in background
 ```docker run -d alpine```
 
-## Listing network informations about docker containers
+##### Listing network informations about docker containers
 ```docker network ls ```
 
-## Listing docker runnining containers
+##### Listing docker runnining containers
 ```docker ps ```
 
 ## Stopping all containers
