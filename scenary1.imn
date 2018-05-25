@@ -121,8 +121,8 @@ node n8 {
 	!
     }
     canvas c1
-    iconcoords {687.0 408.0}
-    labelcoords {687.0 440.0}
+    iconcoords {688.0 406.0}
+    labelcoords {688.0 438.0}
     interface-peer {eth0 n12}
 }
 
@@ -153,8 +153,8 @@ node n10 {
 	!
     }
     canvas c1
-    iconcoords {684.0 193.0}
-    labelcoords {684.0 225.0}
+    iconcoords {684.0 192.0}
+    labelcoords {684.0 224.0}
     interface-peer {eth0 n12}
 }
 
@@ -171,8 +171,8 @@ node n11 {
 	!
     }
     canvas c1
-    iconcoords {413.0 108.0}
-    labelcoords {413.0 140.0}
+    iconcoords {410.0 108.0}
+    labelcoords {410.0 140.0}
     interface-peer {eth0 n12}
     interface-peer {eth1 n14}
     custom-config {
@@ -180,6 +180,8 @@ node n11 {
 	custom-command Firewall
 	config {
 	files=('firewall.sh', )
+	startidx=0
+	starttime=1
 	}
     }
     custom-config {
@@ -197,11 +199,11 @@ node n11 {
 	# start by flushing all firewall rules (so this script may be re-run)
 	iptables -F
 	
-	# allow traffic related to established connections
-	iptables -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
+	# CUSTOM RULE allow outcoming traffic from LAN to WAN
+	iptables -t nat -A POSTROUTING -s 192.168.0.0/24 -o eth1 -j MASQUERADE 
 	
-	# allow incoming outcoming from LAN to WAN
-	iptables ­-t nat -­A POSTROUTING ­-s 192.168.0.0/24 ­o eth1 -­j MASQUERADE 
+	# allow traffic related to established connections 
+	iptables -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
 	
 	# allow TCP packets from any source destined for 192.168.1.1
 	#iptables -A INPUT -s 0/0 -i eth0 -d 192.168.1.1  -p TCP -j ACCEPT
@@ -247,7 +249,7 @@ node n11 {
 	
 	}
     }
-    services {zebra OSPFv2 OSPFv3 vtysh IPForward DHCPClient}
+    services {zebra OSPFv2 OSPFv3 vtysh IPForward DHCPClient Firewall}
 }
 
 node n12 {
