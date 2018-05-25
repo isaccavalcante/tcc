@@ -1,7 +1,7 @@
 node n1 {
     type lanswitch
     network-config {
-	hostname switch2
+	hostname s2
 	!
 	interface e1
 	!
@@ -13,21 +13,21 @@ node n1 {
     labelcoords {177.0 340.0}
     interface-peer {e0 n5}
     interface-peer {e1 n2}
-    interface-peer {e2 victim1}
-    interface-peer {e3 victim2}
-    interface-peer {e4 victim3}
-    interface-peer {e5 victim4}
-    interface-peer {e6 victim5}
-    interface-peer {e7 victim6}
-    interface-peer {e8 victim7}
-    interface-peer {e9 victim8}
-    interface-peer {e10 victim9}
+    interface-peer {e2 v1}
+    interface-peer {e3 v2}
+    interface-peer {e4 v3}
+    interface-peer {e5 v4}
+    interface-peer {e6 v5}
+    interface-peer {e7 v6}
+    interface-peer {e8 v7}
+    interface-peer {e9 v8}
+    interface-peer {e10 v9}
 }
 
 node n2 {
     type lanswitch
     network-config {
-	hostname switch3
+	hostname s3
 	!
 	interface e2
 	!
@@ -42,21 +42,21 @@ node n2 {
     interface-peer {e0 n5}
     interface-peer {e1 n1}
     interface-peer {e2 n3}
-    interface-peer {e3 victim10}
-    interface-peer {e4 victim11}
-    interface-peer {e5 victim12}
-    interface-peer {e6 victim13}
-    interface-peer {e7 victim14}
-    interface-peer {e8 victim15}
-    interface-peer {e9 victim16}
-    interface-peer {e10 victim17}
-    interface-peer {e11 victim18}
+    interface-peer {e3 v10}
+    interface-peer {e4 v11}
+    interface-peer {e5 v12}
+    interface-peer {e6 v13}
+    interface-peer {e7 v14}
+    interface-peer {e8 v15}
+    interface-peer {e9 v16}
+    interface-peer {e10 v17}
+    interface-peer {e11 v18}
 }
 
 node n3 {
     type lanswitch
     network-config {
-	hostname switch4
+	hostname s4
 	!
 	interface e2
 	!
@@ -71,21 +71,21 @@ node n3 {
     interface-peer {e0 n5}
     interface-peer {e1 n2}
     interface-peer {e2 n4}
-    interface-peer {e3 victim19}
-    interface-peer {e4 victim20}
-    interface-peer {e5 victim21}
-    interface-peer {e6 victim22}
-    interface-peer {e7 victim23}
-    interface-peer {e8 victim24}
-    interface-peer {e9 victim25}
-    interface-peer {e10 victim26}
-    interface-peer {e11 victim27}
+    interface-peer {e3 v19}
+    interface-peer {e4 v20}
+    interface-peer {e5 v21}
+    interface-peer {e6 v22}
+    interface-peer {e7 v23}
+    interface-peer {e8 v24}
+    interface-peer {e9 v25}
+    interface-peer {e10 v26}
+    interface-peer {e11 v27}
 }
 
 node n4 {
     type lanswitch
     network-config {
-	hostname switch5
+	hostname s5
 	!
 	interface e1
 	!
@@ -97,22 +97,22 @@ node n4 {
     labelcoords {786.0 341.0}
     interface-peer {e0 n5}
     interface-peer {e1 n3}
-    interface-peer {e2 victim28}
-    interface-peer {e3 victim29}
-    interface-peer {e4 victim30}
-    interface-peer {e5 victim31}
-    interface-peer {e6 victim32}
-    interface-peer {e7 victim33}
-    interface-peer {e8 victim34}
-    interface-peer {e9 victim35}
-    interface-peer {e10 victim36}
+    interface-peer {e2 v28}
+    interface-peer {e3 v29}
+    interface-peer {e4 v30}
+    interface-peer {e5 v31}
+    interface-peer {e6 v32}
+    interface-peer {e7 v33}
+    interface-peer {e8 v34}
+    interface-peer {e9 v35}
+    interface-peer {e10 v36}
     interface-peer {e11 n16}
 }
 
 node n5 {
     type lanswitch
     network-config {
-	hostname switch1
+	hostname s1
 	!
 	interface e4
 	!
@@ -141,7 +141,7 @@ node n6 {
     type router
     model router
     network-config {
-	hostname router
+	hostname r1
 	!
 	interface eth1
 	 ip address 192.168.1.1/24
@@ -158,11 +158,11 @@ node n6 {
     interface-peer {eth1 n43}
 }
 
-node victim1 {
+node v1 {
     type router
     model PC
     network-config {
-	hostname victim1
+	hostname v1
 	!
 	interface eth0
 	 ip address 192.168.0.20/24
@@ -175,11 +175,11 @@ node victim1 {
     interface-peer {eth0 n1}
 }
 
-node victim2 {
+node v2 {
     type router
     model PC
     network-config {
-	hostname victim2
+	hostname v2
 	!
 	interface eth0
 	 ip address 192.168.0.21/24
@@ -192,11 +192,11 @@ node victim2 {
     interface-peer {eth0 n1}
 }
 
-node victim3 {
+node v3 {
     type router
     model PC
     network-config {
-	hostname victim3
+	hostname v3
 	!
 	interface eth0
 	 ip address 192.168.0.22/24
@@ -209,11 +209,11 @@ node victim3 {
     interface-peer {eth0 n1}
 }
 
-node victim4 {
+node v4 {
     type router
     model PC
     network-config {
-	hostname victim4
+	hostname v4
 	!
 	interface eth0
 	 ip address 192.168.0.23/24
@@ -226,11 +226,11 @@ node victim4 {
     interface-peer {eth0 n1}
 }
 
-node victim5 {
+node v5 {
     type router
     model PC
     network-config {
-	hostname victim5
+	hostname v5
 	!
 	interface eth0
 	 ip address 192.168.0.24/24
@@ -243,11 +243,11 @@ node victim5 {
     interface-peer {eth0 n1}
 }
 
-node victim6 {
+node v6 {
     type router
     model PC
     network-config {
-	hostname victim6
+	hostname v6
 	!
 	interface eth0
 	 ip address 192.168.0.25/24
@@ -260,11 +260,11 @@ node victim6 {
     interface-peer {eth0 n1}
 }
 
-node victim7 {
+node v7 {
     type router
     model PC
     network-config {
-	hostname victim7
+	hostname v7
 	!
 	interface eth0
 	 ip address 192.168.0.26/24
@@ -277,11 +277,11 @@ node victim7 {
     interface-peer {eth0 n1}
 }
 
-node victim8 {
+node v8 {
     type router
     model PC
     network-config {
-	hostname victim8
+	hostname v8
 	!
 	interface eth0
 	 ip address 192.168.0.27/24
@@ -294,11 +294,11 @@ node victim8 {
     interface-peer {eth0 n1}
 }
 
-node victim9 {
+node v9 {
     type router
     model PC
     network-config {
-	hostname victim9
+	hostname v9
 	!
 	interface eth0
 	 ip address 192.168.0.28/24
@@ -311,11 +311,11 @@ node victim9 {
     interface-peer {eth0 n1}
 }
 
-node victim10 {
+node v10 {
     type router
     model PC
     network-config {
-	hostname victim10
+	hostname v10
 	!
 	interface eth0
 	 ip address 192.168.0.29/24
@@ -328,11 +328,11 @@ node victim10 {
     interface-peer {eth0 n2}
 }
 
-node victim11 {
+node v11 {
     type router
     model PC
     network-config {
-	hostname victim11
+	hostname v11
 	!
 	interface eth0
 	 ip address 192.168.0.30/24
@@ -345,11 +345,11 @@ node victim11 {
     interface-peer {eth0 n2}
 }
 
-node victim12 {
+node v12 {
     type router
     model PC
     network-config {
-	hostname victim12
+	hostname v12
 	!
 	interface eth0
 	 ip address 192.168.0.31/24
@@ -362,11 +362,11 @@ node victim12 {
     interface-peer {eth0 n2}
 }
 
-node victim13 {
+node v13 {
     type router
     model PC
     network-config {
-	hostname victim13
+	hostname v13
 	!
 	interface eth0
 	 ip address 192.168.0.32/24
@@ -379,11 +379,11 @@ node victim13 {
     interface-peer {eth0 n2}
 }
 
-node victim14 {
+node v14 {
     type router
     model PC
     network-config {
-	hostname victim14
+	hostname v14
 	!
 	interface eth0
 	 ip address 192.168.0.33/24
@@ -396,11 +396,11 @@ node victim14 {
     interface-peer {eth0 n2}
 }
 
-node victim15 {
+node v15 {
     type router
     model PC
     network-config {
-	hostname victim15
+	hostname v15
 	!
 	interface eth0
 	 ip address 192.168.0.34/24
@@ -413,11 +413,11 @@ node victim15 {
     interface-peer {eth0 n2}
 }
 
-node victim16 {
+node v16 {
     type router
     model PC
     network-config {
-	hostname victim16
+	hostname v16
 	!
 	interface eth0
 	 ip address 192.168.0.35/24
@@ -430,11 +430,11 @@ node victim16 {
     interface-peer {eth0 n2}
 }
 
-node victim17 {
+node v17 {
     type router
     model PC
     network-config {
-	hostname victim17
+	hostname v17
 	!
 	interface eth0
 	 ip address 192.168.0.36/24
@@ -447,11 +447,11 @@ node victim17 {
     interface-peer {eth0 n2}
 }
 
-node victim18 {
+node v18 {
     type router
     model PC
     network-config {
-	hostname victim18
+	hostname v18
 	!
 	interface eth0
 	 ip address 192.168.0.37/24
@@ -464,11 +464,11 @@ node victim18 {
     interface-peer {eth0 n2}
 }
 
-node victim19 {
+node v19 {
     type router
     model PC
     network-config {
-	hostname victim19
+	hostname v19
 	!
 	interface eth0
 	 ip address 192.168.0.38/24
@@ -481,11 +481,11 @@ node victim19 {
     interface-peer {eth0 n3}
 }
 
-node victim20 {
+node v20 {
     type router
     model PC
     network-config {
-	hostname victim20
+	hostname v20
 	!
 	interface eth0
 	 ip address 192.168.0.39/24
@@ -498,11 +498,11 @@ node victim20 {
     interface-peer {eth0 n3}
 }
 
-node victim21 {
+node v21 {
     type router
     model PC
     network-config {
-	hostname victim21
+	hostname v21
 	!
 	interface eth0
 	 ip address 192.168.0.40/24
@@ -515,11 +515,11 @@ node victim21 {
     interface-peer {eth0 n3}
 }
 
-node victim22 {
+node v22 {
     type router
     model PC
     network-config {
-	hostname victim22
+	hostname v22
 	!
 	interface eth0
 	 ip address 192.168.0.41/24
@@ -532,11 +532,11 @@ node victim22 {
     interface-peer {eth0 n3}
 }
 
-node victim23 {
+node v23 {
     type router
     model PC
     network-config {
-	hostname victim23
+	hostname v23
 	!
 	interface eth0
 	 ip address 192.168.0.42/24
@@ -549,11 +549,11 @@ node victim23 {
     interface-peer {eth0 n3}
 }
 
-node victim24 {
+node v24 {
     type router
     model PC
     network-config {
-	hostname victim24
+	hostname v24
 	!
 	interface eth0
 	 ip address 192.168.0.43/24
@@ -566,11 +566,11 @@ node victim24 {
     interface-peer {eth0 n3}
 }
 
-node victim25 {
+node v25 {
     type router
     model PC
     network-config {
-	hostname victim25
+	hostname v25
 	!
 	interface eth0
 	 ip address 192.168.0.44/24
@@ -583,11 +583,11 @@ node victim25 {
     interface-peer {eth0 n3}
 }
 
-node victim26 {
+node v26 {
     type router
     model PC
     network-config {
-	hostname victim26
+	hostname v26
 	!
 	interface eth0
 	 ip address 192.168.0.45/24
@@ -600,11 +600,11 @@ node victim26 {
     interface-peer {eth0 n3}
 }
 
-node victim27 {
+node v27 {
     type router
     model PC
     network-config {
-	hostname victim27
+	hostname v27
 	!
 	interface eth0
 	 ip address 192.168.0.46/24
@@ -617,11 +617,11 @@ node victim27 {
     interface-peer {eth0 n3}
 }
 
-node victim28 {
+node v28 {
     type router
     model PC
     network-config {
-	hostname victim28
+	hostname v28
 	!
 	interface eth0
 	 ip address 192.168.0.47/24
@@ -634,11 +634,11 @@ node victim28 {
     interface-peer {eth0 n4}
 }
 
-node victim29 {
+node v29 {
     type router
     model PC
     network-config {
-	hostname victim29
+	hostname v29
 	!
 	interface eth0
 	 ip address 192.168.0.48/24
@@ -651,11 +651,11 @@ node victim29 {
     interface-peer {eth0 n4}
 }
 
-node victim30 {
+node v30 {
     type router
     model PC
     network-config {
-	hostname victim30
+	hostname v30
 	!
 	interface eth0
 	 ip address 192.168.0.49/24
@@ -668,11 +668,11 @@ node victim30 {
     interface-peer {eth0 n4}
 }
 
-node victim31 {
+node v31 {
     type router
     model PC
     network-config {
-	hostname victim31
+	hostname v31
 	!
 	interface eth0
 	 ip address 192.168.0.50/24
@@ -685,11 +685,11 @@ node victim31 {
     interface-peer {eth0 n4}
 }
 
-node victim32 {
+node v32 {
     type router
     model PC
     network-config {
-	hostname victim32
+	hostname v32
 	!
 	interface eth0
 	 ip address 192.168.0.51/24
@@ -702,11 +702,11 @@ node victim32 {
     interface-peer {eth0 n4}
 }
 
-node victim33 {
+node v33 {
     type router
     model PC
     network-config {
-	hostname victim33
+	hostname v33
 	!
 	interface eth0
 	 ip address 192.168.0.52/24
@@ -719,11 +719,11 @@ node victim33 {
     interface-peer {eth0 n4}
 }
 
-node victim34 {
+node v34 {
     type router
     model PC
     network-config {
-	hostname victim34
+	hostname v34
 	!
 	interface eth0
 	 ip address 192.168.0.53/24
@@ -736,11 +736,11 @@ node victim34 {
     interface-peer {eth0 n4}
 }
 
-node victim35 {
+node v35 {
     type router
     model PC
     network-config {
-	hostname victim35
+	hostname v35
 	!
 	interface eth0
 	 ip address 192.168.0.54/24
@@ -753,11 +753,11 @@ node victim35 {
     interface-peer {eth0 n4}
 }
 
-node victim36 {
+node v36 {
     type router
     model PC
     network-config {
-	hostname victim36
+	hostname v36
 	!
 	interface eth0
 	 ip address 192.168.0.55/24
@@ -782,11 +782,11 @@ node n43 {
     interface-peer {0 n6}
 }
 
-node victim37 {
+node v37 {
     type router
     model PC
     network-config {
-	hostname victim37
+	hostname v37
 	!
 	interface eth0
 	 ip address 192.168.0.56/24
@@ -799,11 +799,11 @@ node victim37 {
     interface-peer {eth0 n16}
 }
 
-node victim38 {
+node v38 {
     type router
     model PC
     network-config {
-	hostname victim38
+	hostname v38
 	!
 	interface eth0
 	 ip address 192.168.0.57/24
@@ -816,11 +816,11 @@ node victim38 {
     interface-peer {eth0 n16}
 }
 
-node victim39 {
+node v39 {
     type router
     model PC
     network-config {
-	hostname victim39
+	hostname v39
 	!
 	interface eth0
 	 ip address 192.168.0.58/24
@@ -833,11 +833,11 @@ node victim39 {
     interface-peer {eth0 n16}
 }
 
-node victim40 {
+node v40 {
     type router
     model PC
     network-config {
-	hostname victim40
+	hostname v40
 	!
 	interface eth0
 	 ip address 192.168.0.59/24
@@ -850,11 +850,11 @@ node victim40 {
     interface-peer {eth0 n16}
 }
 
-node victim41 {
+node v41 {
     type router
     model PC
     network-config {
-	hostname victim41
+	hostname v41
 	!
 	interface eth0
 	 ip address 192.168.0.60/24
@@ -867,11 +867,11 @@ node victim41 {
     interface-peer {eth0 n16}
 }
 
-node victim42 {
+node v42 {
     type router
     model PC
     network-config {
-	hostname victim42
+	hostname v42
 	!
 	interface eth0
 	 ip address 192.168.0.61/24
@@ -884,11 +884,11 @@ node victim42 {
     interface-peer {eth0 n16}
 }
 
-node victim43 {
+node v43 {
     type router
     model PC
     network-config {
-	hostname victim43
+	hostname v43
 	!
 	interface eth0
 	 ip address 192.168.0.62/24
@@ -901,11 +901,11 @@ node victim43 {
     interface-peer {eth0 n16}
 }
 
-node victim44 {
+node v44 {
     type router
     model PC
     network-config {
-	hostname victim44
+	hostname v44
 	!
 	interface eth0
 	 ip address 192.168.0.63/24
@@ -918,11 +918,11 @@ node victim44 {
     interface-peer {eth0 n16}
 }
 
-node victim45 {
+node v45 {
     type router
     model PC
     network-config {
-	hostname victim45
+	hostname v45
 	!
 	interface eth0
 	 ip address 192.168.0.64/24
@@ -938,7 +938,7 @@ node victim45 {
 node n16 {
     type lanswitch
     network-config {
-	hostname switch6
+	hostname s6
 	!
     }
     canvas c1
@@ -946,22 +946,22 @@ node n16 {
     labelcoords {1037.0 342.0}
     interface-peer {e0 n5}
     interface-peer {e1 n4}
-    interface-peer {e2 victim37}
-    interface-peer {e3 victim38}
-    interface-peer {e4 victim39}
-    interface-peer {e5 victim40}
-    interface-peer {e6 victim41}
-    interface-peer {e7 victim42}
-    interface-peer {e8 victim43}
-    interface-peer {e9 victim44}
-    interface-peer {e10 victim45}
+    interface-peer {e2 v37}
+    interface-peer {e3 v38}
+    interface-peer {e4 v39}
+    interface-peer {e5 v40}
+    interface-peer {e6 v41}
+    interface-peer {e7 v42}
+    interface-peer {e8 v43}
+    interface-peer {e9 v44}
+    interface-peer {e10 v45}
     interface-peer {e11 n7}
 }
 
 node n7 {
     type lanswitch
     network-config {
-	hostname switch7
+	hostname s7
 	!
     }
     canvas c1
@@ -981,7 +981,7 @@ node n8 {
     type router
     model PC
     network-config {
-	hostname victim46
+	hostname v46
 	!
 	interface eth0
 	 ip address 192.168.0.65/24
@@ -998,7 +998,7 @@ node n9 {
     type router
     model PC
     network-config {
-	hostname victim47
+	hostname v47
 	!
 	interface eth0
 	 ip address 192.168.0.66/24
@@ -1015,7 +1015,7 @@ node n10 {
     type router
     model PC
     network-config {
-	hostname victim48
+	hostname v48
 	!
 	interface eth0
 	 ip address 192.168.0.67/24
@@ -1032,7 +1032,7 @@ node n11 {
     type router
     model PC
     network-config {
-	hostname victim49
+	hostname v49
 	!
 	interface eth0
 	 ip address 192.168.0.68/24
@@ -1049,7 +1049,7 @@ node n12 {
     type router
     model PC
     network-config {
-	hostname victim50
+	hostname v50
 	!
 	interface eth0
 	 ip address 192.168.0.69/24
@@ -1066,7 +1066,7 @@ node n13 {
     type router
     model PC
     network-config {
-	hostname attacker
+	hostname a1
 	!
 	interface eth0
 	 ip address 192.168.0.70/24
@@ -1129,217 +1129,217 @@ link l8 {
 
 link l9 {
     color Green
-    nodes {n1 victim1}
+    nodes {n1 v1}
     bandwidth 0
 }
 
 link l10 {
     color Green
-    nodes {n1 victim2}
+    nodes {n1 v2}
     bandwidth 0
 }
 
 link l11 {
     color Green
-    nodes {n1 victim3}
+    nodes {n1 v3}
     bandwidth 0
 }
 
 link l12 {
     color Green
-    nodes {n1 victim4}
+    nodes {n1 v4}
     bandwidth 0
 }
 
 link l13 {
     color Green
-    nodes {n1 victim5}
+    nodes {n1 v5}
     bandwidth 0
 }
 
 link l14 {
     color Green
-    nodes {n1 victim6}
+    nodes {n1 v6}
     bandwidth 0
 }
 
 link l15 {
     color Green
-    nodes {n1 victim7}
+    nodes {n1 v7}
     bandwidth 0
 }
 
 link l16 {
     color Green
-    nodes {n1 victim8}
+    nodes {n1 v8}
     bandwidth 0
 }
 
 link l17 {
     color Green
-    nodes {n1 victim9}
+    nodes {n1 v9}
     bandwidth 0
 }
 
 link l18 {
     color Green
-    nodes {n2 victim10}
+    nodes {n2 v10}
     bandwidth 0
 }
 
 link l19 {
     color Green
-    nodes {n2 victim11}
+    nodes {n2 v11}
     bandwidth 0
 }
 
 link l20 {
     color Green
-    nodes {n2 victim12}
+    nodes {n2 v12}
     bandwidth 0
 }
 
 link l21 {
     color Green
-    nodes {n2 victim13}
+    nodes {n2 v13}
     bandwidth 0
 }
 
 link l22 {
     color Green
-    nodes {n2 victim14}
+    nodes {n2 v14}
     bandwidth 0
 }
 
 link l23 {
     color Green
-    nodes {n2 victim15}
+    nodes {n2 v15}
     bandwidth 0
 }
 
 link l24 {
     color Green
-    nodes {n2 victim16}
+    nodes {n2 v16}
     bandwidth 0
 }
 
 link l25 {
     color Green
-    nodes {n2 victim17}
+    nodes {n2 v17}
     bandwidth 0
 }
 
 link l26 {
     color Green
-    nodes {n2 victim18}
+    nodes {n2 v18}
     bandwidth 0
 }
 
 link l27 {
     color Green
-    nodes {n3 victim19}
+    nodes {n3 v19}
     bandwidth 0
 }
 
 link l28 {
     color Green
-    nodes {n3 victim20}
+    nodes {n3 v20}
     bandwidth 0
 }
 
 link l29 {
     color Green
-    nodes {n3 victim21}
+    nodes {n3 v21}
     bandwidth 0
 }
 
 link l30 {
     color Green
-    nodes {n3 victim22}
+    nodes {n3 v22}
     bandwidth 0
 }
 
 link l31 {
     color Green
-    nodes {n3 victim23}
+    nodes {n3 v23}
     bandwidth 0
 }
 
 link l32 {
     color Green
-    nodes {n3 victim24}
+    nodes {n3 v24}
     bandwidth 0
 }
 
 link l33 {
     color Green
-    nodes {n3 victim25}
+    nodes {n3 v25}
     bandwidth 0
 }
 
 link l34 {
     color Green
-    nodes {n3 victim26}
+    nodes {n3 v26}
     bandwidth 0
 }
 
 link l35 {
     color Green
-    nodes {n3 victim27}
+    nodes {n3 v27}
     bandwidth 0
 }
 
 link l36 {
     color Green
-    nodes {n4 victim28}
+    nodes {n4 v28}
     bandwidth 0
 }
 
 link l37 {
     color Green
-    nodes {n4 victim29}
+    nodes {n4 v29}
     bandwidth 0
 }
 
 link l38 {
     color Green
-    nodes {n4 victim30}
+    nodes {n4 v30}
     bandwidth 0
 }
 
 link l39 {
     color Green
-    nodes {n4 victim31}
+    nodes {n4 v31}
     bandwidth 0
 }
 
 link l40 {
     color Green
-    nodes {n4 victim32}
+    nodes {n4 v32}
     bandwidth 0
 }
 
 link l41 {
     color Green
-    nodes {n4 victim33}
+    nodes {n4 v33}
     bandwidth 0
 }
 
 link l42 {
     color Green
-    nodes {n4 victim34}
+    nodes {n4 v34}
     bandwidth 0
 }
 
 link l43 {
     color Green
-    nodes {n4 victim35}
+    nodes {n4 v35}
     bandwidth 0
 }
 
 link l44 {
     color Green
-    nodes {n4 victim36}
+    nodes {n4 v36}
     bandwidth 0
 }
 
@@ -1362,55 +1362,55 @@ link l47 {
 
 link l48 {
     color Green
-    nodes {victim37 n16}
+    nodes {v37 n16}
     bandwidth 0
 }
 
 link l49 {
     color Green
-    nodes {victim38 n16}
+    nodes {v38 n16}
     bandwidth 0
 }
 
 link l50 {
     color Green
-    nodes {victim39 n16}
+    nodes {v39 n16}
     bandwidth 0
 }
 
 link l51 {
     color Green
-    nodes {victim40 n16}
+    nodes {v40 n16}
     bandwidth 0
 }
 
 link l52 {
     color Green
-    nodes {victim41 n16}
+    nodes {v41 n16}
     bandwidth 0
 }
 
 link l53 {
     color Green
-    nodes {victim42 n16}
+    nodes {v42 n16}
     bandwidth 0
 }
 
 link l54 {
     color Green
-    nodes {victim43 n16}
+    nodes {v43 n16}
     bandwidth 0
 }
 
 link l55 {
     color Green
-    nodes {victim44 n16}
+    nodes {v44 n16}
     bandwidth 0
 }
 
 link l56 {
     color Green
-    nodes {victim45 n16}
+    nodes {v45 n16}
     bandwidth 0
 }
 
