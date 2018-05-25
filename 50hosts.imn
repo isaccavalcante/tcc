@@ -1,0 +1,1338 @@
+node n1 {
+    type lanswitch
+    network-config {
+	hostname switch2
+	!
+	interface e1
+	!
+	interface e0
+	!
+    }
+    canvas c1
+    iconcoords {177.0 316.0}
+    labelcoords {177.0 340.0}
+    interface-peer {e0 n5}
+    interface-peer {e1 n2}
+    interface-peer {e2 victim1}
+    interface-peer {e3 victim2}
+    interface-peer {e4 victim3}
+    interface-peer {e5 victim4}
+    interface-peer {e6 victim5}
+    interface-peer {e7 victim6}
+    interface-peer {e8 victim7}
+    interface-peer {e9 victim8}
+    interface-peer {e10 victim9}
+}
+
+node n2 {
+    type lanswitch
+    network-config {
+	hostname switch3
+	!
+	interface e2
+	!
+	interface e1
+	!
+	interface e0
+	!
+    }
+    canvas c1
+    iconcoords {400.0 316.0}
+    labelcoords {400.0 340.0}
+    interface-peer {e0 n5}
+    interface-peer {e1 n1}
+    interface-peer {e2 n3}
+    interface-peer {e3 victim10}
+    interface-peer {e4 victim11}
+    interface-peer {e5 victim12}
+    interface-peer {e6 victim13}
+    interface-peer {e7 victim14}
+    interface-peer {e8 victim15}
+    interface-peer {e9 victim16}
+    interface-peer {e10 victim17}
+    interface-peer {e11 victim18}
+}
+
+node n3 {
+    type lanswitch
+    network-config {
+	hostname switch4
+	!
+	interface e2
+	!
+	interface e1
+	!
+	interface e0
+	!
+    }
+    canvas c1
+    iconcoords {591.0 317.0}
+    labelcoords {591.0 341.0}
+    interface-peer {e0 n5}
+    interface-peer {e1 n2}
+    interface-peer {e2 n4}
+    interface-peer {e3 victim19}
+    interface-peer {e4 victim20}
+    interface-peer {e5 victim21}
+    interface-peer {e6 victim22}
+    interface-peer {e7 victim23}
+    interface-peer {e8 victim24}
+    interface-peer {e9 victim25}
+    interface-peer {e10 victim26}
+    interface-peer {e11 victim27}
+}
+
+node n4 {
+    type lanswitch
+    network-config {
+	hostname switch5
+	!
+	interface e1
+	!
+	interface e0
+	!
+    }
+    canvas c1
+    iconcoords {786.0 317.0}
+    labelcoords {786.0 341.0}
+    interface-peer {e0 n5}
+    interface-peer {e1 n3}
+    interface-peer {e2 victim28}
+    interface-peer {e3 victim29}
+    interface-peer {e4 victim30}
+    interface-peer {e5 victim31}
+    interface-peer {e6 victim32}
+    interface-peer {e7 victim33}
+    interface-peer {e8 victim34}
+    interface-peer {e9 victim35}
+    interface-peer {e10 victim36}
+    interface-peer {e11 n16}
+}
+
+node n5 {
+    type lanswitch
+    network-config {
+	hostname switch1
+	!
+	interface e4
+	!
+	interface e3
+	!
+	interface e2
+	!
+	interface e1
+	!
+	interface e0
+	!
+    }
+    canvas c1
+    iconcoords {590.0 203.0}
+    labelcoords {590.0 227.0}
+    interface-peer {e0 n1}
+    interface-peer {e1 n2}
+    interface-peer {e2 n3}
+    interface-peer {e3 n4}
+    interface-peer {e4 n6}
+    interface-peer {e5 n16}
+}
+
+node n6 {
+    type router
+    model router
+    network-config {
+	hostname router
+	!
+	interface eth1
+	 ip address 192.168.1.1/24
+	 ipv6 address :0::1/64
+	!
+	interface eth0
+	 ipv6 address 2001:0::1/64
+	!
+    }
+    canvas c1
+    iconcoords {420.0 98.0}
+    labelcoords {420.0 130.0}
+    interface-peer {eth0 n5}
+    interface-peer {eth1 n43}
+}
+
+node victim1 {
+    type router
+    model PC
+    network-config {
+	hostname victim1
+	!
+	interface eth0
+	 ip address 192.168.0.20/24
+	 ipv6 address 2001:0::20/64
+	!
+    }
+    canvas c1
+    iconcoords {43.0 383.0}
+    labelcoords {43.0 415.0}
+    interface-peer {eth0 n1}
+}
+
+node victim2 {
+    type router
+    model PC
+    network-config {
+	hostname victim2
+	!
+	interface eth0
+	 ip address 192.168.0.21/24
+	 ipv6 address 2001:0::21/64
+	!
+    }
+    canvas c1
+    iconcoords {105.0 382.0}
+    labelcoords {105.0 414.0}
+    interface-peer {eth0 n1}
+}
+
+node victim3 {
+    type router
+    model PC
+    network-config {
+	hostname victim3
+	!
+	interface eth0
+	 ip address 192.168.0.22/24
+	 ipv6 address 2001:0::22/64
+	!
+    }
+    canvas c1
+    iconcoords {168.0 385.0}
+    labelcoords {168.0 417.0}
+    interface-peer {eth0 n1}
+}
+
+node victim4 {
+    type router
+    model PC
+    network-config {
+	hostname victim4
+	!
+	interface eth0
+	 ip address 192.168.0.23/24
+	 ipv6 address 2001:0::23/64
+	!
+    }
+    canvas c1
+    iconcoords {49.0 461.0}
+    labelcoords {49.0 493.0}
+    interface-peer {eth0 n1}
+}
+
+node victim5 {
+    type router
+    model PC
+    network-config {
+	hostname victim5
+	!
+	interface eth0
+	 ip address 192.168.0.24/24
+	 ipv6 address 2001:0::24/64
+	!
+    }
+    canvas c1
+    iconcoords {105.0 458.0}
+    labelcoords {105.0 490.0}
+    interface-peer {eth0 n1}
+}
+
+node victim6 {
+    type router
+    model PC
+    network-config {
+	hostname victim6
+	!
+	interface eth0
+	 ip address 192.168.0.25/24
+	 ipv6 address 2001:0::25/64
+	!
+    }
+    canvas c1
+    iconcoords {171.0 458.0}
+    labelcoords {171.0 490.0}
+    interface-peer {eth0 n1}
+}
+
+node victim7 {
+    type router
+    model PC
+    network-config {
+	hostname victim7
+	!
+	interface eth0
+	 ip address 192.168.0.26/24
+	 ipv6 address 2001:0::26/64
+	!
+    }
+    canvas c1
+    iconcoords {51.0 528.0}
+    labelcoords {51.0 560.0}
+    interface-peer {eth0 n1}
+}
+
+node victim8 {
+    type router
+    model PC
+    network-config {
+	hostname victim8
+	!
+	interface eth0
+	 ip address 192.168.0.27/24
+	 ipv6 address 2001:0::27/64
+	!
+    }
+    canvas c1
+    iconcoords {113.0 528.0}
+    labelcoords {113.0 560.0}
+    interface-peer {eth0 n1}
+}
+
+node victim9 {
+    type router
+    model PC
+    network-config {
+	hostname victim9
+	!
+	interface eth0
+	 ip address 192.168.0.28/24
+	 ipv6 address 2001:0::28/64
+	!
+    }
+    canvas c1
+    iconcoords {173.0 527.0}
+    labelcoords {173.0 559.0}
+    interface-peer {eth0 n1}
+}
+
+node victim10 {
+    type router
+    model PC
+    network-config {
+	hostname victim10
+	!
+	interface eth0
+	 ip address 192.168.0.29/24
+	 ipv6 address 2001:0::29/64
+	!
+    }
+    canvas c1
+    iconcoords {286.0 381.0}
+    labelcoords {286.0 413.0}
+    interface-peer {eth0 n2}
+}
+
+node victim11 {
+    type router
+    model PC
+    network-config {
+	hostname victim11
+	!
+	interface eth0
+	 ip address 192.168.0.30/24
+	 ipv6 address 2001:0::30/64
+	!
+    }
+    canvas c1
+    iconcoords {348.0 380.0}
+    labelcoords {348.0 412.0}
+    interface-peer {eth0 n2}
+}
+
+node victim12 {
+    type router
+    model PC
+    network-config {
+	hostname victim12
+	!
+	interface eth0
+	 ip address 192.168.0.31/24
+	 ipv6 address 2001:0::31/64
+	!
+    }
+    canvas c1
+    iconcoords {411.0 383.0}
+    labelcoords {411.0 415.0}
+    interface-peer {eth0 n2}
+}
+
+node victim13 {
+    type router
+    model PC
+    network-config {
+	hostname victim13
+	!
+	interface eth0
+	 ip address 192.168.0.32/24
+	 ipv6 address 2001:0::32/64
+	!
+    }
+    canvas c1
+    iconcoords {292.0 459.0}
+    labelcoords {292.0 491.0}
+    interface-peer {eth0 n2}
+}
+
+node victim14 {
+    type router
+    model PC
+    network-config {
+	hostname victim14
+	!
+	interface eth0
+	 ip address 192.168.0.33/24
+	 ipv6 address 2001:0::33/64
+	!
+    }
+    canvas c1
+    iconcoords {348.0 456.0}
+    labelcoords {348.0 488.0}
+    interface-peer {eth0 n2}
+}
+
+node victim15 {
+    type router
+    model PC
+    network-config {
+	hostname victim15
+	!
+	interface eth0
+	 ip address 192.168.0.34/24
+	 ipv6 address 2001:0::34/64
+	!
+    }
+    canvas c1
+    iconcoords {414.0 456.0}
+    labelcoords {414.0 488.0}
+    interface-peer {eth0 n2}
+}
+
+node victim16 {
+    type router
+    model PC
+    network-config {
+	hostname victim16
+	!
+	interface eth0
+	 ip address 192.168.0.35/24
+	 ipv6 address 2001:0::35/64
+	!
+    }
+    canvas c1
+    iconcoords {294.0 526.0}
+    labelcoords {294.0 558.0}
+    interface-peer {eth0 n2}
+}
+
+node victim17 {
+    type router
+    model PC
+    network-config {
+	hostname victim17
+	!
+	interface eth0
+	 ip address 192.168.0.36/24
+	 ipv6 address 2001:0::36/64
+	!
+    }
+    canvas c1
+    iconcoords {356.0 526.0}
+    labelcoords {356.0 558.0}
+    interface-peer {eth0 n2}
+}
+
+node victim18 {
+    type router
+    model PC
+    network-config {
+	hostname victim18
+	!
+	interface eth0
+	 ip address 192.168.0.37/24
+	 ipv6 address 2001:0::37/64
+	!
+    }
+    canvas c1
+    iconcoords {416.0 525.0}
+    labelcoords {416.0 557.0}
+    interface-peer {eth0 n2}
+}
+
+node victim19 {
+    type router
+    model PC
+    network-config {
+	hostname victim19
+	!
+	interface eth0
+	 ip address 192.168.0.38/24
+	 ipv6 address 2001:0::38/64
+	!
+    }
+    canvas c1
+    iconcoords {514.0 393.0}
+    labelcoords {514.0 425.0}
+    interface-peer {eth0 n3}
+}
+
+node victim20 {
+    type router
+    model PC
+    network-config {
+	hostname victim20
+	!
+	interface eth0
+	 ip address 192.168.0.39/24
+	 ipv6 address 2001:0::39/64
+	!
+    }
+    canvas c1
+    iconcoords {576.0 392.0}
+    labelcoords {576.0 424.0}
+    interface-peer {eth0 n3}
+}
+
+node victim21 {
+    type router
+    model PC
+    network-config {
+	hostname victim21
+	!
+	interface eth0
+	 ip address 192.168.0.40/24
+	 ipv6 address 2001:0::40/64
+	!
+    }
+    canvas c1
+    iconcoords {639.0 395.0}
+    labelcoords {639.0 427.0}
+    interface-peer {eth0 n3}
+}
+
+node victim22 {
+    type router
+    model PC
+    network-config {
+	hostname victim22
+	!
+	interface eth0
+	 ip address 192.168.0.41/24
+	 ipv6 address 2001:0::41/64
+	!
+    }
+    canvas c1
+    iconcoords {520.0 471.0}
+    labelcoords {520.0 503.0}
+    interface-peer {eth0 n3}
+}
+
+node victim23 {
+    type router
+    model PC
+    network-config {
+	hostname victim23
+	!
+	interface eth0
+	 ip address 192.168.0.42/24
+	 ipv6 address 2001:0::42/64
+	!
+    }
+    canvas c1
+    iconcoords {576.0 468.0}
+    labelcoords {576.0 500.0}
+    interface-peer {eth0 n3}
+}
+
+node victim24 {
+    type router
+    model PC
+    network-config {
+	hostname victim24
+	!
+	interface eth0
+	 ip address 192.168.0.43/24
+	 ipv6 address 2001:0::43/64
+	!
+    }
+    canvas c1
+    iconcoords {642.0 468.0}
+    labelcoords {642.0 500.0}
+    interface-peer {eth0 n3}
+}
+
+node victim25 {
+    type router
+    model PC
+    network-config {
+	hostname victim25
+	!
+	interface eth0
+	 ip address 192.168.0.44/24
+	 ipv6 address 2001:0::44/64
+	!
+    }
+    canvas c1
+    iconcoords {522.0 538.0}
+    labelcoords {522.0 570.0}
+    interface-peer {eth0 n3}
+}
+
+node victim26 {
+    type router
+    model PC
+    network-config {
+	hostname victim26
+	!
+	interface eth0
+	 ip address 192.168.0.45/24
+	 ipv6 address 2001:0::45/64
+	!
+    }
+    canvas c1
+    iconcoords {584.0 538.0}
+    labelcoords {584.0 570.0}
+    interface-peer {eth0 n3}
+}
+
+node victim27 {
+    type router
+    model PC
+    network-config {
+	hostname victim27
+	!
+	interface eth0
+	 ip address 192.168.0.46/24
+	 ipv6 address 2001:0::46/64
+	!
+    }
+    canvas c1
+    iconcoords {644.0 537.0}
+    labelcoords {644.0 569.0}
+    interface-peer {eth0 n3}
+}
+
+node victim28 {
+    type router
+    model PC
+    network-config {
+	hostname victim28
+	!
+	interface eth0
+	 ip address 192.168.0.47/24
+	 ipv6 address 2001:0::47/64
+	!
+    }
+    canvas c1
+    iconcoords {730.0 393.0}
+    labelcoords {730.0 425.0}
+    interface-peer {eth0 n4}
+}
+
+node victim29 {
+    type router
+    model PC
+    network-config {
+	hostname victim29
+	!
+	interface eth0
+	 ip address 192.168.0.48/24
+	 ipv6 address 2001:0::48/64
+	!
+    }
+    canvas c1
+    iconcoords {792.0 392.0}
+    labelcoords {792.0 424.0}
+    interface-peer {eth0 n4}
+}
+
+node victim30 {
+    type router
+    model PC
+    network-config {
+	hostname victim30
+	!
+	interface eth0
+	 ip address 192.168.0.49/24
+	 ipv6 address 2001:0::49/64
+	!
+    }
+    canvas c1
+    iconcoords {855.0 395.0}
+    labelcoords {855.0 427.0}
+    interface-peer {eth0 n4}
+}
+
+node victim31 {
+    type router
+    model PC
+    network-config {
+	hostname victim31
+	!
+	interface eth0
+	 ip address 192.168.0.50/24
+	 ipv6 address 2001:0::50/64
+	!
+    }
+    canvas c1
+    iconcoords {736.0 471.0}
+    labelcoords {736.0 503.0}
+    interface-peer {eth0 n4}
+}
+
+node victim32 {
+    type router
+    model PC
+    network-config {
+	hostname victim32
+	!
+	interface eth0
+	 ip address 192.168.0.51/24
+	 ipv6 address 2001:0::51/64
+	!
+    }
+    canvas c1
+    iconcoords {792.0 468.0}
+    labelcoords {792.0 500.0}
+    interface-peer {eth0 n4}
+}
+
+node victim33 {
+    type router
+    model PC
+    network-config {
+	hostname victim33
+	!
+	interface eth0
+	 ip address 192.168.0.52/24
+	 ipv6 address 2001:0::52/64
+	!
+    }
+    canvas c1
+    iconcoords {858.0 468.0}
+    labelcoords {858.0 500.0}
+    interface-peer {eth0 n4}
+}
+
+node victim34 {
+    type router
+    model PC
+    network-config {
+	hostname victim34
+	!
+	interface eth0
+	 ip address 192.168.0.53/24
+	 ipv6 address 2001:0::53/64
+	!
+    }
+    canvas c1
+    iconcoords {738.0 538.0}
+    labelcoords {738.0 570.0}
+    interface-peer {eth0 n4}
+}
+
+node victim35 {
+    type router
+    model PC
+    network-config {
+	hostname victim35
+	!
+	interface eth0
+	 ip address 192.168.0.54/24
+	 ipv6 address 2001:0::54/64
+	!
+    }
+    canvas c1
+    iconcoords {800.0 538.0}
+    labelcoords {800.0 570.0}
+    interface-peer {eth0 n4}
+}
+
+node victim36 {
+    type router
+    model PC
+    network-config {
+	hostname victim36
+	!
+	interface eth0
+	 ip address 192.168.0.55/24
+	 ipv6 address 2001:0::55/64
+	!
+    }
+    canvas c1
+    iconcoords {860.0 537.0}
+    labelcoords {860.0 569.0}
+    interface-peer {eth0 n4}
+}
+
+node n43 {
+    type rj45
+    network-config {
+	hostname wlp3s0
+	!
+    }
+    canvas c1
+    iconcoords {706.0 97.0}
+    labelcoords {706.0 129.0}
+    interface-peer {0 n6}
+}
+
+node victim37 {
+    type router
+    model PC
+    network-config {
+	hostname victim37
+	!
+	interface eth0
+	 ip address 192.168.0.56/24
+	 ipv6 address 2001:0::56/64
+	!
+    }
+    canvas c1
+    iconcoords {959.0 388.0}
+    labelcoords {959.0 420.0}
+    interface-peer {eth0 n16}
+}
+
+node victim38 {
+    type router
+    model PC
+    network-config {
+	hostname victim38
+	!
+	interface eth0
+	 ip address 192.168.0.57/24
+	 ipv6 address 2001:0::57/64
+	!
+    }
+    canvas c1
+    iconcoords {1027.0 385.0}
+    labelcoords {1027.0 417.0}
+    interface-peer {eth0 n16}
+}
+
+node victim39 {
+    type router
+    model PC
+    network-config {
+	hostname victim39
+	!
+	interface eth0
+	 ip address 192.168.0.58/24
+	 ipv6 address 2001:0::58/64
+	!
+    }
+    canvas c1
+    iconcoords {1091.0 391.0}
+    labelcoords {1091.0 423.0}
+    interface-peer {eth0 n16}
+}
+
+node victim40 {
+    type router
+    model PC
+    network-config {
+	hostname victim40
+	!
+	interface eth0
+	 ip address 192.168.0.59/24
+	 ipv6 address 2001:0::59/64
+	!
+    }
+    canvas c1
+    iconcoords {961.0 471.0}
+    labelcoords {961.0 503.0}
+    interface-peer {eth0 n16}
+}
+
+node victim41 {
+    type router
+    model PC
+    network-config {
+	hostname victim41
+	!
+	interface eth0
+	 ip address 192.168.0.60/24
+	 ipv6 address 2001:0::60/64
+	!
+    }
+    canvas c1
+    iconcoords {1032.0 468.0}
+    labelcoords {1032.0 500.0}
+    interface-peer {eth0 n16}
+}
+
+node victim42 {
+    type router
+    model PC
+    network-config {
+	hostname victim42
+	!
+	interface eth0
+	 ip address 192.168.0.61/24
+	 ipv6 address 2001:0::61/64
+	!
+    }
+    canvas c1
+    iconcoords {1098.0 470.0}
+    labelcoords {1098.0 502.0}
+    interface-peer {eth0 n16}
+}
+
+node victim43 {
+    type router
+    model PC
+    network-config {
+	hostname victim43
+	!
+	interface eth0
+	 ip address 192.168.0.62/24
+	 ipv6 address 2001:0::62/64
+	!
+    }
+    canvas c1
+    iconcoords {960.0 541.0}
+    labelcoords {960.0 573.0}
+    interface-peer {eth0 n16}
+}
+
+node victim44 {
+    type router
+    model PC
+    network-config {
+	hostname victim44
+	!
+	interface eth0
+	 ip address 192.168.0.63/24
+	 ipv6 address 2001:0::63/64
+	!
+    }
+    canvas c1
+    iconcoords {1033.0 543.0}
+    labelcoords {1033.0 575.0}
+    interface-peer {eth0 n16}
+}
+
+node victim45 {
+    type router
+    model PC
+    network-config {
+	hostname victim45
+	!
+	interface eth0
+	 ip address 192.168.0.64/24
+	 ipv6 address 2001:0::64/64
+	!
+    }
+    canvas c1
+    iconcoords {1102.0 541.0}
+    labelcoords {1102.0 573.0}
+    interface-peer {eth0 n16}
+}
+
+node n16 {
+    type lanswitch
+    network-config {
+	hostname switch6
+	!
+    }
+    canvas c1
+    iconcoords {1037.0 318.0}
+    labelcoords {1037.0 342.0}
+    interface-peer {e0 n5}
+    interface-peer {e1 n4}
+    interface-peer {e2 victim37}
+    interface-peer {e3 victim38}
+    interface-peer {e4 victim39}
+    interface-peer {e5 victim40}
+    interface-peer {e6 victim41}
+    interface-peer {e7 victim42}
+    interface-peer {e8 victim43}
+    interface-peer {e9 victim44}
+    interface-peer {e10 victim45}
+    interface-peer {e11 n7}
+}
+
+node n7 {
+    type router
+    model PC
+    network-config {
+	hostname attacker
+	!
+	interface eth0
+	 ip address 192.168.0.65/24
+	!
+    }
+    canvas c1
+    iconcoords {1184.0 318.0}
+    labelcoords {1184.0 350.0}
+    interface-peer {eth0 n16}
+}
+
+link l1 {
+    color Green
+    nodes {n1 n5}
+    bandwidth 0
+}
+
+link l2 {
+    color Green
+    nodes {n2 n5}
+    bandwidth 0
+}
+
+link l3 {
+    color Green
+    nodes {n3 n5}
+    bandwidth 0
+}
+
+link l4 {
+    color Green
+    nodes {n4 n5}
+    bandwidth 0
+}
+
+link l5 {
+    color Green
+    nodes {n5 n6}
+    bandwidth 0
+}
+
+link l6 {
+    color Green
+    nodes {n1 n2}
+    bandwidth 0
+}
+
+link l7 {
+    color Green
+    nodes {n2 n3}
+    bandwidth 0
+}
+
+link l8 {
+    color Green
+    nodes {n3 n4}
+    bandwidth 0
+}
+
+link l9 {
+    color Green
+    nodes {n1 victim1}
+    bandwidth 0
+}
+
+link l10 {
+    color Green
+    nodes {n1 victim2}
+    bandwidth 0
+}
+
+link l11 {
+    color Green
+    nodes {n1 victim3}
+    bandwidth 0
+}
+
+link l12 {
+    color Green
+    nodes {n1 victim4}
+    bandwidth 0
+}
+
+link l13 {
+    color Green
+    nodes {n1 victim5}
+    bandwidth 0
+}
+
+link l14 {
+    color Green
+    nodes {n1 victim6}
+    bandwidth 0
+}
+
+link l15 {
+    color Green
+    nodes {n1 victim7}
+    bandwidth 0
+}
+
+link l16 {
+    color Green
+    nodes {n1 victim8}
+    bandwidth 0
+}
+
+link l17 {
+    color Green
+    nodes {n1 victim9}
+    bandwidth 0
+}
+
+link l18 {
+    color Green
+    nodes {n2 victim10}
+    bandwidth 0
+}
+
+link l19 {
+    color Green
+    nodes {n2 victim11}
+    bandwidth 0
+}
+
+link l20 {
+    color Green
+    nodes {n2 victim12}
+    bandwidth 0
+}
+
+link l21 {
+    color Green
+    nodes {n2 victim13}
+    bandwidth 0
+}
+
+link l22 {
+    color Green
+    nodes {n2 victim14}
+    bandwidth 0
+}
+
+link l23 {
+    color Green
+    nodes {n2 victim15}
+    bandwidth 0
+}
+
+link l24 {
+    color Green
+    nodes {n2 victim16}
+    bandwidth 0
+}
+
+link l25 {
+    color Green
+    nodes {n2 victim17}
+    bandwidth 0
+}
+
+link l26 {
+    color Green
+    nodes {n2 victim18}
+    bandwidth 0
+}
+
+link l27 {
+    color Green
+    nodes {n3 victim19}
+    bandwidth 0
+}
+
+link l28 {
+    color Green
+    nodes {n3 victim20}
+    bandwidth 0
+}
+
+link l29 {
+    color Green
+    nodes {n3 victim21}
+    bandwidth 0
+}
+
+link l30 {
+    color Green
+    nodes {n3 victim22}
+    bandwidth 0
+}
+
+link l31 {
+    color Green
+    nodes {n3 victim23}
+    bandwidth 0
+}
+
+link l32 {
+    color Green
+    nodes {n3 victim24}
+    bandwidth 0
+}
+
+link l33 {
+    color Green
+    nodes {n3 victim25}
+    bandwidth 0
+}
+
+link l34 {
+    color Green
+    nodes {n3 victim26}
+    bandwidth 0
+}
+
+link l35 {
+    color Green
+    nodes {n3 victim27}
+    bandwidth 0
+}
+
+link l36 {
+    color Green
+    nodes {n4 victim28}
+    bandwidth 0
+}
+
+link l37 {
+    color Green
+    nodes {n4 victim29}
+    bandwidth 0
+}
+
+link l38 {
+    color Green
+    nodes {n4 victim30}
+    bandwidth 0
+}
+
+link l39 {
+    color Green
+    nodes {n4 victim31}
+    bandwidth 0
+}
+
+link l40 {
+    color Green
+    nodes {n4 victim32}
+    bandwidth 0
+}
+
+link l41 {
+    color Green
+    nodes {n4 victim33}
+    bandwidth 0
+}
+
+link l42 {
+    color Green
+    nodes {n4 victim34}
+    bandwidth 0
+}
+
+link l43 {
+    color Green
+    nodes {n4 victim35}
+    bandwidth 0
+}
+
+link l44 {
+    color Green
+    nodes {n4 victim36}
+    bandwidth 0
+}
+
+link l45 {
+    color Green
+    nodes {n6 n43}
+}
+
+link l46 {
+    color Green
+    nodes {n5 n16}
+    bandwidth 0
+}
+
+link l47 {
+    color Green
+    nodes {n4 n16}
+    bandwidth 0
+}
+
+link l48 {
+    color Green
+    nodes {victim37 n16}
+    bandwidth 0
+}
+
+link l49 {
+    color Green
+    nodes {victim38 n16}
+    bandwidth 0
+}
+
+link l50 {
+    color Green
+    nodes {victim39 n16}
+    bandwidth 0
+}
+
+link l51 {
+    color Green
+    nodes {victim40 n16}
+    bandwidth 0
+}
+
+link l52 {
+    color Green
+    nodes {victim41 n16}
+    bandwidth 0
+}
+
+link l53 {
+    color Green
+    nodes {victim42 n16}
+    bandwidth 0
+}
+
+link l54 {
+    color Green
+    nodes {victim43 n16}
+    bandwidth 0
+}
+
+link l55 {
+    color Green
+    nodes {victim44 n16}
+    bandwidth 0
+}
+
+link l56 {
+    color Green
+    nodes {victim45 n16}
+    bandwidth 0
+}
+
+link l57 {
+    nodes {n16 n7}
+    bandwidth 0
+}
+
+canvas c1 {
+    name {Canvas1}
+    refpt {0 0 47.5791667 -122.132322 2.0}
+    scale {150.0}
+    size {1300 750}
+}
+
+option global {
+    interface_names no
+    ip_addresses no
+    ipv6_addresses no
+    node_labels yes
+    link_labels yes
+    show_api no
+    background_images no
+    annotations yes
+    grid yes
+    traffic_start 0
+}
+
+option session {
+}
+
