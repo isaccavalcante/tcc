@@ -10,7 +10,7 @@
 iptables -F
 
 # CUSTOM RULE allow outcoming traffic from LAN to WAN
-iptables ­-t nat -­A POSTROUTING ­-s 192.168.0.0/24 ­o eth1 -­j MASQUERADE 
+iptables ­-t nat -­A POSTROUTING ­-s 192.168.0.0/24 ­-o eth1 -­j MASQUERADE 
 
 # allow traffic related to established connections 
 iptables -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
