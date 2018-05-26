@@ -5,7 +5,7 @@ node n1 {
 	hostname v2
 	!
 	interface eth0
-	 ip address 192.168.0.3/24
+	 ip address 192.168.0.21/24
 	!
     }
     canvas c1
@@ -21,12 +21,12 @@ node n2 {
 	hostname v4
 	!
 	interface eth0
-	 ip address 192.168.0.5/24
+	 ip address 192.168.0.23/24
 	!
     }
     canvas c1
-    iconcoords {82.0 504.0}
-    labelcoords {82.0 536.0}
+    iconcoords {80.0 502.0}
+    labelcoords {80.0 534.0}
     interface-peer {eth0 n12}
 }
 
@@ -37,12 +37,12 @@ node n3 {
 	hostname v3
 	!
 	interface eth0
-	 ip address 192.168.0.4/24
+	 ip address 192.168.0.22/24
 	!
     }
     canvas c1
-    iconcoords {75.0 411.0}
-    labelcoords {75.0 443.0}
+    iconcoords {73.0 410.0}
+    labelcoords {73.0 442.0}
     interface-peer {eth0 n12}
 }
 
@@ -53,7 +53,7 @@ node n4 {
 	hostname v5
 	!
 	interface eth0
-	 ip address 192.168.0.6/24
+	 ip address 192.168.0.24/24
 	!
     }
     canvas c1
@@ -69,7 +69,7 @@ node n5 {
 	hostname v6
 	!
 	interface eth0
-	 ip address 192.168.0.7/24
+	 ip address 192.168.0.25/24
 	!
     }
     canvas c1
@@ -85,7 +85,7 @@ node n6 {
 	hostname v7
 	!
 	interface eth0
-	 ip address 192.168.0.8/24
+	 ip address 192.168.0.26/24
 	!
     }
     canvas c1
@@ -101,7 +101,7 @@ node n7 {
 	hostname v8
 	!
 	interface eth0
-	 ip address 192.168.0.9/24
+	 ip address 192.168.0.27/24
 	!
     }
     canvas c1
@@ -117,7 +117,7 @@ node n8 {
 	hostname v9
 	!
 	interface eth0
-	 ip address 192.168.0.10/24
+	 ip address 192.168.0.28/24
 	!
     }
     canvas c1
@@ -133,7 +133,7 @@ node n9 {
 	hostname v10
 	!
 	interface eth0
-	 ip address 192.168.0.11/24
+	 ip address 192.168.0.29/24
 	!
     }
     canvas c1
@@ -149,7 +149,7 @@ node n10 {
 	hostname a1
 	!
 	interface eth0
-	 ip address 192.168.0.12/24
+	 ip address 192.168.0.30/24
 	!
     }
     canvas c1
@@ -165,6 +165,8 @@ node n11 {
 	hostname r1
 	!
 	interface eth1
+	 ip address 192.168.1.1/24
+	 ipv6 address :0::1/64
 	!
 	interface eth0
 	 ip address 192.168.0.1/24
@@ -174,7 +176,6 @@ node n11 {
     iconcoords {417.0 104.0}
     labelcoords {417.0 136.0}
     interface-peer {eth0 n12}
-    interface-peer {eth1 n14}
     custom-config {
 	custom-config-id service:DHCPClient
 	custom-command DHCPClient
@@ -250,6 +251,7 @@ node n11 {
 	}
     }
     services {zebra OSPFv2 OSPFv3 vtysh IPForward DHCPClient Firewall}
+    interface-peer {eth1 n14}
 }
 
 node n12 {
@@ -282,7 +284,7 @@ node n13 {
 	hostname v1
 	!
 	interface eth0
-	 ip address 192.168.0.2/24
+	 ip address 192.168.0.20/24
 	!
     }
     canvas c1
@@ -292,92 +294,119 @@ node n13 {
 }
 
 node n14 {
-    type rj45
+    type router
+    model host
     network-config {
-	hostname wlp3s0
+	hostname w1
+	!
+	interface eth0
+	 ip address 192.168.1.10/24
 	!
     }
     canvas c1
-    iconcoords {675.0 103.0}
-    labelcoords {675.0 135.0}
-    interface-peer {0 n11}
+    iconcoords {677.0 94.0}
+    labelcoords {677.0 126.0}
+    interface-peer {eth0 n11}
+    services {DefaultRoute SSH}
+    custom-config {
+	custom-config-id service:UserDefined
+	custom-command UserDefined
+	config {
+	startidx=0
+	starttime=1
+	}
+    }
 }
 
 link l1 {
+    delay 50000
     color Green
     nodes {n1 n12}
-    bandwidth 0
+    bandwidth 512000
 }
 
 link l2 {
+    delay 50000
     color Green
     nodes {n2 n12}
-    bandwidth 0
+    bandwidth 512000
 }
 
 link l3 {
+    delay 50000
     color Green
     nodes {n3 n12}
-    bandwidth 0
+    bandwidth 512000
 }
 
 link l4 {
+    delay 50000
     color Green
     nodes {n4 n12}
-    bandwidth 0
+    bandwidth 512000
 }
 
 link l5 {
+    delay 50000
     color Green
     nodes {n5 n12}
-    bandwidth 0
+    bandwidth 512000
 }
 
 link l6 {
+    delay 50000
     color Green
     nodes {n6 n12}
-    bandwidth 0
+    bandwidth 512000
 }
 
 link l7 {
+    delay 50000
     color Green
     nodes {n7 n12}
-    bandwidth 0
+    bandwidth 512000
 }
 
 link l8 {
+    delay 50000
     color Green
     nodes {n8 n12}
-    bandwidth 0
+    bandwidth 512000
 }
 
 link l9 {
+    delay 50000
     color Green
     nodes {n9 n12}
-    bandwidth 0
+    bandwidth 512000
 }
 
 link l10 {
+    delay 50000
     color Green
     nodes {n10 n12}
-    bandwidth 0
+    bandwidth 512000
 }
 
 link l11 {
+    delay 50000
     color Green
     nodes {n11 n12}
-    bandwidth 0
+    bandwidth 512000
 }
 
 link l12 {
+    delay 50000
     color Green
     nodes {n13 n12}
-    bandwidth 0
+    bandwidth 512000
 }
 
 link l13 {
+    delay 50000
     color Green
     nodes {n11 n14}
+    bandwidth 512000
 }
 
 canvas c1 {
