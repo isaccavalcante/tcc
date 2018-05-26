@@ -19,13 +19,33 @@ echo "[+] Session started"
 echo "[+] Waiting for routing tables to be set"
 
 # tries to ping router
-run_command v10 ping -c 1 192.168.0.1  
+run_command v10 ping -c 1 192.168.0.1  &> /dev/null
 until [[ $?  -eq 0  ]]; do
-	run_command v10 ping -c 1 192.168.0.1
+	sleep 1
+	run_command v10 ping -c 1 192.168.0.1 &> /dev/null
 done
 
 # exited loop, routing tables set
 echo "[+] Routing tables set"
 
-cp run_test.py "/tmp/$(ls /tmp/ | grep pycore)/a1.conf"
-run_command a1 python3 run_test.py
+# make all hosts continuously ping server
+echo "[+] Starting communication between nodes"
+for i in $(seq 1 10); do
+	run_command v$i ping 192.168.1.10 &> /dev/null &
+done
+
+time_test(){
+	echo "[+] Copying test script to host"
+	cp run_test.py -v "/tmp/$(ls /tmp/ | grep pycore)/a1.conf"
+
+	echo "[+] Running test"
+	start=`date +%s.%N`
+
+	run_command a1 python3 run_test.py
+
+	end=`date +%s.%N`
+	runtime=$( echo "$end - $start" | bc -l )
+	echo "[+] Time elapsed: $runtime"
+}
+
+time_test
