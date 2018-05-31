@@ -7,9 +7,16 @@ if [ "$EUID" -ne 0 ]
   exit 1
 fi
 
+GATEWAY_ADDRESS="192.168.0.1"
+EXTERNAL_ADDRESS="192.168.1.10"
+RANGE_START=1
+RANGE_END=10
+ATTACKER=a1
+LAST_NODE=n$RANGE_END
+
 run_command(){
 	# first argument: node name
-	# second argument: command to be run
+	# other arguments: command to be run
 	vcmd -c  "/tmp/$(ls /tmp/ | grep pycore)/$1" -- ${@:2}
 }
 
@@ -23,11 +30,11 @@ done
 echo "[+] Session started"
 echo "[+] Waiting for routing tables to be set"
 
-# tries to ping router
-run_command v10 ping -c 1 192.168.0.1  &> /dev/null
+# last node tries to ping gateweay
+run_command $LAST_NODE ping -c 1 $GATEWAY_ADDRESS  &> /dev/null
 until [[ $?  -eq 0  ]]; do
 	sleep 1
-	run_command v10 ping -c 1 192.168.0.1 &> /dev/null
+	run_command $LAST_NODE ping -c 1 $GATEWAY_ADDRESS &> /dev/null
 done
 
 # exited loop, routing tables set
@@ -35,18 +42,18 @@ echo "[+] Routing tables set"
 
 # make all hosts continuously ping server
 echo "[+] Starting communication between nodes"
-for i in $(seq 1 10); do
-	run_command v$i ping 192.168.1.10 &> /dev/null &
+for i in $(seq $RANGE_START $RANGE_END); do
+	run_command n$i ping $EXTERNAL_ADDRESS &> /dev/null &
 done
 
 time_test(){
-	echo "[+] Copying test script to host"
-	cp run_test.py -v "/tmp/$(ls /tmp/ | grep pycore)/a1.conf"
+	echo "[+] Copying test script to attacker"
+	cp run_test.py -v "/tmp/$(ls /tmp/ | grep pycore)/$ATTACKER.conf"
 
 	echo "[+] Running test"
 	start=`date +%s.%N`
 
-	run_command a1 python3 run_test.py
+	run_command $ATTACKER python3 run_test.py
 
 	end=`date +%s.%N`
 	runtime=$( echo "$end - $start" | bc -l )
