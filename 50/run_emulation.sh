@@ -22,7 +22,7 @@ echo "[+] Waiting for routing tables to be set"
 run_command v10 ping -c 1 192.168.0.1  &> /dev/null
 until [[ $?  -eq 0  ]]; do
 	sleep 1
-	run_command v10 ping -c 1 192.168.0.1 &> /dev/null
+	run_command n50 ping -c 1 192.168.0.1 &> /dev/null
 done
 
 # exited loop, routing tables set
@@ -30,8 +30,8 @@ echo "[+] Routing tables set"
 
 # make all hosts continuously ping server
 echo "[+] Starting communication between nodes"
-for i in $(seq 1 10); do
-	run_command v$i ping 192.168.1.10 &> /dev/null &
+for i in $(seq 1 50); do
+	run_command n$i ping 192.168.1.10 &> /dev/null &
 done
 
 time_test(){
