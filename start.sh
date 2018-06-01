@@ -3,7 +3,7 @@
 # script to start emulation tests
 
 if [ "$EUID" -ne 0 ]
-  then echo "[-] Need to as root"
+  then echo "[-] Need to run as root"
   exit 1
 fi
 
