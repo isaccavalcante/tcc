@@ -2,7 +2,7 @@ node n1 {
     type router
     model PC
     network-config {
-	hostname v2
+	hostname n2
 	!
 	interface eth0
 	 ip address 192.168.0.21/24
@@ -18,7 +18,7 @@ node n2 {
     type router
     model PC
     network-config {
-	hostname v4
+	hostname n4
 	!
 	interface eth0
 	 ip address 192.168.0.23/24
@@ -34,7 +34,7 @@ node n3 {
     type router
     model PC
     network-config {
-	hostname v3
+	hostname n3
 	!
 	interface eth0
 	 ip address 192.168.0.22/24
@@ -50,7 +50,7 @@ node n4 {
     type router
     model PC
     network-config {
-	hostname v5
+	hostname n5
 	!
 	interface eth0
 	 ip address 192.168.0.24/24
@@ -66,7 +66,7 @@ node n5 {
     type router
     model PC
     network-config {
-	hostname v6
+	hostname n6
 	!
 	interface eth0
 	 ip address 192.168.0.25/24
@@ -82,7 +82,7 @@ node n6 {
     type router
     model PC
     network-config {
-	hostname v7
+	hostname n7
 	!
 	interface eth0
 	 ip address 192.168.0.26/24
@@ -98,7 +98,7 @@ node n7 {
     type router
     model PC
     network-config {
-	hostname v8
+	hostname n8
 	!
 	interface eth0
 	 ip address 192.168.0.27/24
@@ -114,7 +114,7 @@ node n8 {
     type router
     model PC
     network-config {
-	hostname v9
+	hostname n9
 	!
 	interface eth0
 	 ip address 192.168.0.28/24
@@ -130,7 +130,7 @@ node n9 {
     type router
     model PC
     network-config {
-	hostname v10
+	hostname n10
 	!
 	interface eth0
 	 ip address 192.168.0.29/24
@@ -166,7 +166,7 @@ node n11 {
 	!
 	interface eth1
 	 ip address 192.168.1.1/24
-	 ipv6 address :0::1/64
+	 ipn6 address :0::1/64
 	!
 	interface eth0
 	 ip address 192.168.0.1/24
@@ -217,7 +217,7 @@ node n11 {
 	# -------- CUSTOMIZATION REQUIRED --------
 	#
 	# Below are sample iptables firewall rules that you can uncomment and edit.
-	# You can also use ip6tables rules for IPv6.
+	# You can also use ip6tables rules for IPn6.
 	#
 	
 	# start by flushing all firewall rules (so this script may be re-run)
@@ -250,7 +250,7 @@ node n11 {
 	
 	}
     }
-    services {zebra OSPFv2 OSPFv3 vtysh IPForward DHCPClient Firewall}
+    services {zebra OSPFn2 OSPFn3 vtysh IPForward DHCPClient Firewall}
     interface-peer {eth1 n14}
 }
 
@@ -281,7 +281,7 @@ node n13 {
     type router
     model PC
     network-config {
-	hostname v1
+	hostname n1
 	!
 	interface eth0
 	 ip address 192.168.0.20/24
@@ -416,7 +416,7 @@ canvas c1 {
 option global {
     interface_names no
     ip_addresses yes
-    ipv6_addresses yes
+    ipn6_addresses yes
     node_labels yes
     link_labels yes
     show_api no
