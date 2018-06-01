@@ -37,9 +37,9 @@ def bettercap():
 	os.system(cmd)
 	
 def mitmf():
-	""" This framewoerk doesn't have a python3 version and have so many dependencies
+	""" This framework doesn't have a python3 version yet and have so many dependencies
 	that the authors opt to make it's instalation using virtual env. In order to make it
-	be executable from os.system(), create an alias for it adding the following line to
+	executable from os.system(), create an alias appending the following line to
 	your .bashrc or .zshrc:
 	
 	alias mitmf="/path/to/virtualenv/python2.7 /path/to/mitmf.py"
@@ -49,7 +49,7 @@ def mitmf():
 		targets += v + ',' 
 	targets = targets.rstrip(',')
 	cmd = """
-	vpython mitmf -i eth0 \
+	mitmf -i eth0 \
 		--spoof \
 		--arp \
 		--target {}, \
