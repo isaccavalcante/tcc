@@ -48,8 +48,9 @@ done
 
 time_test(){
 	echo "[+] Copying test script to attacker"
+	cp -r ~/MITMf "/tmp/$(ls /tmp/ | grep pycore)/$ATTACKER.conf"
 	cp run_test.py -v "/tmp/$(ls /tmp/ | grep pycore)/$ATTACKER.conf"
-
+	
 	echo "[+] Running test"
 	start=`date +%s.%N`
 

