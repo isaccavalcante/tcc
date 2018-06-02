@@ -7,6 +7,13 @@ if [ "$EUID" -ne 0 ]
   exit 1
 fi
 
+if [ $# -eq 0 ]
+	then
+	available_frameworks="ettercap, bettercap, mitmf, arpspoof"
+	echo "[-] Need to pass framework name as argument. Available frameworks: $available_frameworks"
+	exit 1
+fi
+
 GATEWAY_ADDRESS="192.168.0.1"
 EXTERNAL_ADDRESS="192.168.1.10"
 RANGE_START=1
@@ -20,7 +27,7 @@ run_command(){
 	vcmd -c  "/tmp/$(ls /tmp/ | grep pycore)/$1" -- ${@:2}
 }
 
-echo "[+] Waiting for session to begin"
+echo "[+] Waiting for session to start"
 # loop untils there is soment inside the folder pycore
 until [[ $(ls /tmp/$(ls /tmp/ | grep pycore) | wc -l )  -gt 1  ]]; do
 	sleep 1
@@ -54,11 +61,15 @@ time_test(){
 	echo "[+] Running test"
 	start=`date +%s.%N`
 
-	run_command $ATTACKER python3 run_test.py
+	run_command $ATTACKER python3 run_test.py $1
+  	if [[ $?  -eq 0  ]]; then
+    	end=`date +%s.%N`
+		runtime=$( echo "$end - $start" | bc -l )
+		echo "[+] Time elapsed: $runtime"
+	else
+		echo "[-] An error has ocurred"
+	fi
 
-	end=`date +%s.%N`
-	runtime=$( echo "$end - $start" | bc -l )
-	echo "[+] Time elapsed: $runtime"
 }
 
-time_test
+time_test $1
