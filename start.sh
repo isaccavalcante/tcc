@@ -9,7 +9,7 @@ fi
 
 if [ $# -eq 0 ]
 	then
-	available_frameworks="ettercap, bettercap, mitmf, arpspoof"
+	available_frameworks="ettercap, bettercap, mitmf, dsniff"
 	echo "[-] Need to pass framework name as argument. Available frameworks: $available_frameworks"
 	exit 1
 fi
