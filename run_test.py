@@ -2,7 +2,7 @@ from scapy.all import sniff
 import os
 import sys
 
-available_frameworks = ["ettercap", "bettercap", "mitmf", "arpspoof"]
+available_frameworks = ["ettercap", "bettercap", "mitmf", "dsniff"]
 if len(sys.argv) <= 1 or sys.argv[1] not in available_frameworks :
 	help_message = "[-] Need to pass framework name as argument. Available frameworks: {}".format(available_frameworks)
 	print(help_message)
